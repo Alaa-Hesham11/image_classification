@@ -1,121 +1,66 @@
-# Salary Classification System using Machine Learning
+🍕 Pizza vs. Not Pizza: Deep Learning Image Classifier
+This project demonstrates an end-to-end Computer Vision pipeline using TensorFlow and Keras to classify images. The project culminates in a real-time web application built with Gradio that allows users to test the model with their own images.
 
-## 📌 Project Overview
-This project presents a complete **machine learning classification pipeline** for predicting **salary categories** using structured tabular data.  
-The workflow includes **data exploration, preprocessing, model training, evaluation, hyperparameter tuning**, and **best model selection**.
+📌 Project Overview
+The goal of this project is to build a binary classifier capable of distinguishing between images of pizzas and other objects. This involves handling a real-world dataset, implementing a Convolutional Neural Network (CNN), and deploying the model for interactive use.
 
-Additionally, the project includes a **deployment demonstration**, explained through a separate video.
+🛠️ Tech Stack
+Language: Python
 
----
+Deep Learning: TensorFlow / Keras
 
-## 📂 Dataset
-- Format: CSV
-- Uploaded interactively using **Google Colab**
-- Target variable: **salary**
+Data Analysis: Pandas, NumPy
 
-> ⚠️ Dataset files are not included in this repository.
+Visualization: Matplotlib, Seaborn
 
----
+Deployment: Gradio
 
-## 🔍 Data Exploration
-The notebook performs:
-- Dataset shape and structure inspection
-- Data types and column analysis
-- Missing value detection
-- Unique value exploration for categorical features
+📊 Dataset Details
+Total Images: 1,966
 
----
+Classes: * pizza: 983 images
 
-## 🛠️ Data Preprocessing
-Applied preprocessing steps:
-- Column name cleaning
-- Handling missing values:
-  - Categorical features → filled with mode
-  - Numerical features → filled with median
-- Encoding categorical variables using **Label Encoding**
-- Feature scaling using **StandardScaler**
-- Train-test split (80% training, 20% testing)
+not_pizza: 983 images
 
----
+Preprocessing: Images were resized to 224x224 pixels and normalized to a [0, 1] range using ImageDataGenerator.
 
-## 🤖 Machine Learning Models
-Six classification models were implemented and compared:
+🏗️ Model Architecture
+The project utilizes a custom Convolutional Neural Network (CNN) designed for binary classification:
 
-1. Logistic Regression  
-2. Random Forest Classifier  
-3. K-Nearest Neighbors (KNN)  
-4. Decision Tree Classifier  
-5. Naive Bayes (GaussianNB)  
-6. Linear Support Vector Machine (LinearSVC)
+Multiple Conv2D layers for feature extraction.
 
----
+MaxPooling2D layers for downsampling.
 
-## 📊 Model Evaluation
-Models were evaluated using:
-- Accuracy
-- F1-score (weighted)
+Dropout layers to prevent overfitting and improve generalization.
 
-Results were compared to identify the most effective model.
+A Dense output layer with a Sigmoid activation function.
 
----
+🚀 How to Run Locally
+1. Download the Data
+Because the dataset is large, it is hosted in the Releases section of this repository.
 
-## 🔧 Hyperparameter Tuning
-- **GridSearchCV** applied to all applicable models
-- Cross-validation: `cv = 3`
-- Optimization metric: `f1_weighted`
+Download pizza.zip from the latest release.
 
-Tuned models:
-- Logistic Regression
-- Random Forest
-- KNN
-- Decision Tree
-- Linear SVM
+Place it in the same directory as the notebook.
 
-Naive Bayes was evaluated without tuning due to limited parameters.
+2. Install Requirements
+Bash
 
----
+pip install tensorflow gradio numpy pandas matplotlib seaborn
+3. Execution
+Open Image_project.ipynb in Google Colab or Jupyter Notebook and run all cells. The notebook is configured to:
 
-## 🏆 Best Model Selection
-- Models were ranked based on F1-score
-- The best-performing model was selected
-- Performance comparison provided before and after tuning
+Extract the dataset.
 
----
+Train the CNN model.
 
-## 🚀 Deployment
-- The deployment process is demonstrated in a **separate video**
-- The video explains:
-  - Model usage
-  - Prediction workflow
-  - End-to-end system demonstration
+Launch a Gradio web interface.
 
-📽️ *Deployment video link will be added.*
+🌐 Deployment
+The final model is wrapped in a Gradio interface, providing a user-friendly way to:
 
----
+Upload any image from your computer.
 
-## 🧪 Technologies & Tools
-- Python
-- Pandas, NumPy
-- Scikit-learn
-- Google Colab
+See the model's confidence score for both "Pizza" and "Not Pizza" categories.
 
----
-
-## ▶️ How to Run
-1. Open the notebook in **Google Colab**
-2. Upload the dataset when prompted
-3. Run the cells sequentially
-
----
-
-## 📌 Notes
-- Large files such as datasets and trained models are excluded
-- This project is suitable for:
-  - Academic coursework
-  - Machine learning practice
-  - Portfolio demonstration
-
----
-
-## ✨ Author
-**Alaa Hesham**
+Developed as a portfolio project to showcase expertise in Deep Learning and Model Deployment.
